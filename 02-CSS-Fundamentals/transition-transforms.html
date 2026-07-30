@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions and Transforms</title>
+    <style>
+       /* .box{
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+            border: 2px solid black;
+            transition-property: all;
+            transition-timing-function: ease;
+            transition-duration: 4s;
+            
+        }
+        .box:hover{
+            width: 1200px;
+            background-color: blue;
+        }  */
+
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            transition: all 2s ease;
+        }
+
+        .container{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box:hover{
+            /* transform: rotate(45deg);
+            transform: scale(0.6);  
+            transform: skew(-45deg);  */
+            transform: translate(0px,500px);
+        }
+        p{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box"></div> -->
+   <div class="container">
+     <div class="box">
+        <p>Welcome to Transforms</p>
+    </div>
+   </div>
+</body>
+</html>
