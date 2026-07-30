@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Property</title>
+    <style>
+        :root{
+            --custom-width:330px;
+        }
+        .container{
+            background-color: aqua;
+            border: 2px solid black;
+            height: 710px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            
+            background-color: beige;
+            border: 1px solid black;
+            height: 330px;
+            width: var(--custom-width);
+            padding: 5px;
+            margin: 5px;
+           /* box-shadow: 10px 15px black; 
+           box-shadow: 10px 15px 40px black; 
+           box-shadow: 10px 15px 5px 5px black; */
+           box-shadow:10px 15px 5px black;
+        }
+
+        #product-heading{
+            text-shadow: 1px 2px 10px black;
+        }
+
+        img{
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <img src="floatClearOverflowEx.png" alt="smartphone">
+            <h2 id="product-heading">SmartPhone</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, eaque praesentium. Unde omnis ea eos repudiandae temporibus suscipit animi velit, assumenda quis ipsam distinctio, modi molestias tempora neque minima deleniti.</p>
+        </div>
+
+    </div>
+</body>
+</html>

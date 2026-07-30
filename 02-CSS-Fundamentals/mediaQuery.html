@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+    <style>
+      /*  .container{
+            display: flex;
+            gap: 2px;
+        }
+        .box{
+            height: 200px;
+            width: 200px;
+            border: 3px solid black;
+        }
+        .box1{
+            background-color: aqua;
+        }
+        .box2{
+            background-color: black;
+        }
+        .box3{
+            background-color: green;
+        }
+        .box4{
+            background-color: gold;
+        }
+
+        @media (max-width:1280px) {
+            .container{
+                flex-direction: column;
+            }
+        } */
+
+        .main-container{
+            display: flex;
+            flex-direction: row;
+            border: 2px solid black;
+            width: 450px;
+            padding: 2px;
+            margin: 10px;
+        }
+
+        img{
+           width: 170px;
+        }
+        .container1{
+            background-color: aqua;
+            border: 1px solid black;
+              width: 47%;
+            margin: 3px;
+            padding: 2px;
+            display: flex;
+            flex-direction: column;
+        }
+        .container2{
+            background-color: antiquewhite;
+            border: 1px solid brown;
+            width: 47%;
+            margin: 3px;
+            padding: 2px;
+        }
+        p{
+            border: 1px solid red;
+        }
+        @media (max-width:640px) {
+            .main-container{
+                flex-direction: column-reverse;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex-1 -->
+    <!-- <div class="container"> 
+    <div class="box box1">
+        Welcome to Media Query
+    </div>
+    <div class="box box2">
+        Welcome to Media Query
+    </div>
+    <div class="box box3">
+        Welcome to Media Query
+    </div>
+    <div class="box box4">
+        Welcome to Media Query
+    </div>
+    
+    </div> -->
+
+    <!-- ex-2 -->
+    <div class="main-container">
+        <div class="container1">
+            <p>1-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis ullam ducimus commodi modi vitae accusantium laboriosam consectetur! Repudiandae doloremque velit harum dolor nisi dolorum, quasi possimus odit sequi totam molestiae.</p>
+            <p>2-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis ullam ducimus commodi modi vitae accusantium laboriosam consectetur! Repudiandae doloremque velit harum dolor nisi dolorum, quasi possimus odit sequi totam molestiae.</p>
+        </div>
+        <div class="container2">
+            <img src="floatClearOverflowEx.png" alt="">
+        </div>
+    </div>
+
+</body>
+</html>
