@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   background-image: linear-gradient( 180.4deg,  rgba(0,6,10,1) 1%, rgba(1,190,237,1) 91.4% );
+}
+
+
+.container{
+    width: 100%;
+    height: 100%;
+    min-height: 730px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card{
+    width: 360px;
+    height: 530px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    overflow-y: auto;
+    
+}
+
+
+.card img{
+    height: 30%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card .textBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 75%;
+    text-align: center;   
+}
+
+.card .smallCard{
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+
+.card .smallCard .leftItem{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.card .smallCard img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+@media (max-width:400px) {
+    .card{
+        height: 670px;
+    }
+    .card .smallCard{
+        flex-direction: column;
+    
+    }
+    .card .smallCard .leftItem{
+        flex-direction: column;
+    }
+}
+
+.card button{
+    width: 80%;
+  background-image: radial-gradient( circle farthest-corner at 17.6% 50.7%,  rgba(25,0,184,1) 0%, rgba(0,0,0,1) 90% );
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+   box-shadow: 0px 4px 15px black;
+}
+
+#cancelOrder{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.762);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
