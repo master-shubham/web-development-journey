@@ -51,8 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       const parsedData = await response.json();
       displayUserData(parsedData);
+      statsContainer.style.setProperty("display", "block");
     } catch (error) {
-      statsContainer.innerHTML = "<p>No data Found!</p>";
+      statsContainer.innerHTML = `<p>No data Found!${error.message}</p>`;
     } finally {
       searchButton.textContent = "Search";
       searchButton.disabled = false;
@@ -68,8 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // display data
   function displayUserData(parsedData) {
-    console.log(parsedData);
-
+    
     const totalQAll = parsedData.totalQuestions;
     const totalQEasy = parsedData.totalEasy;
     const totalQMedium = parsedData.totalMedium;
@@ -91,11 +91,41 @@ document.addEventListener("DOMContentLoaded", function () {
       mediumProgressCircle,
     );
     updateProgress(solvedTotalHardQ, totalQHard, hardLabel, hardProgressCircle);
+
+    const cardsData = [
+      {
+        label: "Overall Submissions",
+        value: parsedData.matchedUserStats.totalSubmissionNum[0].submissions,
+      },
+      {
+        label: "Overall Easy Submissions",
+        value: parsedData.matchedUserStats.totalSubmissionNum[1].submissions,
+      },
+      {
+        label: "Overall Medium Submissions",
+        value: parsedData.matchedUserStats.totalSubmissionNum[2].submissions,
+      },
+      {
+        label: "Overall Hard Submissions",
+        value: parsedData.matchedUserStats.totalSubmissionNum[3].submissions,
+      },
+    ];
+
+    cardStatsContainer.innerHTML = cardsData.map(
+      data=>{
+        return `<div class="card">
+        <h4>${data.label}</h4>
+        <p>${data.value}</p>
+      </div>`;
+      }
+      ).join("")
+
   }
 
   searchButton.addEventListener("click", function () {
     const username = usernameInput.value;
     if (validetrUsername(username)) {
+      statsContainer.style.setProperty("display", "none");
       fetchUserDetails(username);
     }
   });
