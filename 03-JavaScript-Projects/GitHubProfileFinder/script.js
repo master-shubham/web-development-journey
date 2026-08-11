@@ -195,6 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function answerQuestion(question, currentUserData) {
     question = question.toLowerCase();
+    let date = new Date(currentUserData.created_at);
 
     if (question.includes("hello")) {
       return `Hello! I'm Github Chat Bot. How can i help you ?`;
@@ -212,6 +213,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (question.includes("location")) {
       return `This user is from ${currentUserData.location || "unknown location"}.`;
+    }
+    if (question.includes("joined")) {
+      return `This user is Joined ${date.toDateString()}.`;
     }
 
     return "I don't know that yet.";
