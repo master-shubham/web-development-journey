@@ -25,12 +25,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const socialRepositories = document.querySelector(".social-repositories");
   const socialPublicGists = document.querySelector(".social-publicGists");
 
+  // chat bot
+  const userQuestion = document.querySelector(".chat-input-box");
+  const chatSendBtn = document.querySelector(".chat-send-btn");
+  const chatMessages = document.querySelector(".chat-messages");
+  let currentUserData = null;
+
   //return true or false based on a regex
   function validateUsername(username) {
     if (username.trim() === "") {
       Toastify({
         text: "Username should not be empty",
         className: "info",
+        offset: {
+          x: 0, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+          y: -10, // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        },
         style: {
           background: "linear-gradient(to right, #9aeced, #13a4a7)",
           color: "black",
@@ -106,12 +116,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         return;
-      }
-    
-
-
+      }      
+      
       const data = await response.json();
+      currentUserData = data; 
       displayUserDetails(data);
+     
       
       profileContainer.style.setProperty("display", "flex");
       socialStatistics.style.setProperty("display", "flex");
@@ -139,12 +149,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (validateUsername(username)) {
           //display loading
+           profileContainer.style.setProperty("display", "none");
+           socialStatistics.style.setProperty("display", "none");
           containerLoading.style.setProperty("display", "block");
           fetchUserDetails(username);
         }
       
     });
   }
+
+  // * chat 
+
+  chatSendBtn.addEventListener("click", function () {
+    if (!currentUserData) {
+      addMessage("Please search for a GitHub user first.", "bot");
+      userQuestion.value=""
+      return;
+    }
+
+    const question = userQuestion.value.trim();
+
+    if (question === "") {
+      return;
+    }
+
+    addMessage(question, "user");
+
+    const answer = answerQuestion(question, currentUserData);
+
+    addMessage(answer, "bot");
+
+    userQuestion.value = "";
+  });
+
+  function addMessage(message, type) {
+    const messageElement = document.createElement("div");
+
+    messageElement.textContent = message;
+
+    messageElement.classList.add(`${type}-message`);
+
+    chatMessages.appendChild(messageElement);
+  }
+
+
+  function answerQuestion(question, currentUserData) {
+    question = question.toLowerCase();
+
+    if (question.includes("hello")) {
+      return `Hello! I'm Github Chat Bot. How can i help you ?`;
+    }
+    if (question.includes("followers")) {
+      return `This user has ${currentUserData.followers} followers.`;
+    }
+    if (question.includes("following")) {
+      return `This user has ${currentUserData.following} following.`;
+    }
+
+    if (question.includes("repositories")) {
+      return `This user has ${currentUserData.public_repos} public repositories.`;
+    }
+
+    if (question.includes("location")) {
+      return `This user is from ${currentUserData.location || "unknown location"}.`;
+    }
+
+    return "I don't know that yet.";
+  }
+
+
+  // *chat end
 
  setupSearchListener("click", searchBtn);
  setupSearchListener("keydown", inputText);
