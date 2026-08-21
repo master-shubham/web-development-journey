@@ -110,3 +110,6 @@ color: white;
 }
 
 
+#load{
+    filter: drop-shadow( 4px 4px 20px rgba(255, 255, 255, 0.393));
+}
