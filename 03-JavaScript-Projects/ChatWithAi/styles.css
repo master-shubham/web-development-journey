@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+.chat-container{
+    width: 100%;
+    height: 80%;
+    background-color: rgba(27, 20, 20, 0.953);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.2rem;
+}
+
+.user-chat-box{
+    width: 60%;
+    position: relative;
+    left: 40%;
+
+}
+.ai-chat-box{
+    width: 60%;
+    position: relative;
+
+}
+
+.user-chat-area{
+    width: 90%;
+    padding: 1.2rem;
+    background-color: aqua;
+    border-radius: 40px 0px 40px 40px;
+    box-shadow: 4px 4px 20px black;
+
+}
+.ai-chat-area{
+    width: 90%;
+    padding: 1.2rem;
+    background-color: rgba(0, 255, 255, 0.875);
+     border-radius: 0px 40px 40px 40px;
+    position: relative;
+    left: 10%;
+    box-shadow: 4px 4px 20px black;
+
+}
+
+#userIcon{
+    position: absolute;
+    right:0 ;
+    font-size: 2.5rem;
+    filter: drop-shadow( 4px 4px 20px rgba(255, 255, 255, 0.300));
+    color: aqua;
+}
+
+#aiIcon{
+    position: absolute;
+    left: 0;
+    font-size: 2.5rem;
+    color: aqua;
+    filter: drop-shadow( 4px 4px 20px rgba(255, 255, 255, 0.300));
+}
+
+.prompt-area{
+    width: 100%;
+    height: 20% ;
+     background-color: rgba(27, 20, 20, 0.953);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 1.2rem;
+}
+
+.prompt-area input{
+    width: 50%;
+    height: 70px;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    padding: 1.2rem;
+    font-size: 1rem;
+}
+
+.prompt-area button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+background-color: black;
+border: none;
+color: white;
+ filter: drop-shadow( 4px 4px 20px rgba(255, 255, 255, 0.010));
+ cursor: pointer;
+}
+
+.prompt-area button:hover{
+    background-color: rgb(26, 24, 24)
+}
+
+.prompt-area button:active{
+    transform: scale(0.9);
+}
+
+

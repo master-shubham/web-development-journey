@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
     <title>ChatWithAi</title>
 </head>
 <body>
-
-        
-
-    
+    <div class="chat-container">
+        <div class="user-chat-box">
+            <i class="fa-mosaic fa-solid fa-user" id="userIcon"></i>
+            <div class="user-chat-area">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet numquam deserunt quidem? Expedita optio ipsum dignissimos, accusamus, voluptatem enim quibusdam sapiente rem nisi neque similique, deserunt fuga. Quo, deleniti magni.
+            </div>
+        </div>
+        <div class="ai-chat-box">
+            <i class="fa-solid fa-robot" id="aiIcon"></i>
+            <div class="ai-chat-area">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit consequatur cumque harum tenetur animi asperiores et tempore tempora dignissimos necessitatibus quae, ipsam reiciendis, incidunt eos delectus placeat dolores voluptatem similique.
+            </div>
+        </div>
+    </div>
+    <div class="prompt-area">
+        <input type="text" id="prompt" placeholder="Message...">
+        <button id="img"><i class="fa-solid fa-image" style="color: rgb(255, 255, 255);font-size: 1.3rem;"></i></button>
+        <button type="submit" id="submit"><i class="fa-solid fa-chevron-up"></i></button>
+    </div>
 
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
 </body>
 </html>
