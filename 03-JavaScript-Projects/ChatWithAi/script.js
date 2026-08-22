@@ -7,9 +7,10 @@ const imgFavIcon = document.querySelector("#img i");
 const submitBtn = document.querySelector("#submit");
 
 // const API_KEY = "" // add api key here
-const API_KEY = "AIzaSyAS_2tQAKcRgYN9QKsv-o4sJnJ8PZkJ_ic";
+const API_KEY = "";
 
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+
 let user = {
   message: null || "",
   file: {
@@ -59,10 +60,10 @@ async function generateResponse(aiChatBox) {
       behavior: "smooth",
     });
 
-      imgIMG.src = "";
-      imgIMG.classList.remove("chooseIMG");
-      imgFavIcon.classList.remove("favicon-img");
-      user.file={}
+    imgIMG.src = "";
+    imgIMG.classList.remove("chooseIMG");
+    imgFavIcon.classList.remove("favicon-img");
+    user.file = {};
   }
 }
 
@@ -79,7 +80,7 @@ const handleChatResponse = (message) => {
   let htmlUser = ` <i class="fa-mosaic fa-solid fa-user" id="userIcon"></i>
             <div class="user-chat-area">
                 ${user.message}
-                ${user.file.data ? `<img src="data:${user.file.mime_type};base64,${user.file.data}" alt="image..." class="chooseimg" />`:""}
+                ${user.file.data ? `<img src="data:${user.file.mime_type};base64,${user.file.data}" alt="image..." class="chooseimg" />` : ""}
             </div>`;
 
   prompt.value = "";
@@ -109,15 +110,21 @@ const handleChatResponse = (message) => {
 
 prompt.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-     if (prompt.value === "") return;
+    if (prompt.value === "") {
+      errorAlert();
+      return;
+    }
     handleChatResponse(prompt.value);
   }
 });
 
-submitBtn.addEventListener("click",()=>{
-  if(prompt.value === "") return;
+submitBtn.addEventListener("click", () => {
+  if (prompt.value === "") {
+    errorAlert();
+    return;
+  }
   handleChatResponse(prompt.value);
-})
+});
 
 imgInput.addEventListener("change", () => {
   const file = imgInput.files[0];
@@ -129,20 +136,29 @@ imgInput.addEventListener("change", () => {
       mime_type: file.type,
       data: base64string,
     };
-    imgIMG.src=`data:${user.file.mime_type};base64,${user.file.data}`;
-    imgIMG.classList.add("chooseIMG")
+    imgIMG.src = `data:${user.file.mime_type};base64,${user.file.data}`;
+    imgIMG.classList.add("chooseIMG");
     imgFavIcon.classList.add("favicon-img");
-
   };
 
   reader.readAsDataURL(file);
-
-
 });
-
-
-
 
 imgBtn.addEventListener("click", () => {
   imgBtn.querySelector("input").click();
 });
+
+function errorAlert() {
+  Toastify({
+    text: "Input can't be empty ",
+    className: "warning",
+    stopOnFocus: true,
+    close: true,
+    style: {
+      background: "rgba(47, 26, 26, 0.88)",
+      color: "white",
+      border: " 2px solid rgba(255, 255, 255, 0.132)",
+      borderRadius: "20px 0px 20px 20px",
+    },
+  }).showToast();
+}
