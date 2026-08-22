@@ -19,6 +19,7 @@ body{
     flex-direction: column;
     gap: 20px;
     font-size: 1.2rem;
+    overflow: auto;
 }
 
 .user-chat-box{
@@ -39,8 +40,18 @@ body{
     background-color: aqua;
     border-radius: 40px 0px 40px 40px;
     box-shadow: 4px 4px 20px black;
-
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    gap: 10px;
+    flex-direction: column;
 }
+
+.chooseimg{
+    width: 30%;
+    border-radius: 30px;
+}
+
 .ai-chat-area{
     width: 90%;
     padding: 1.2rem;
@@ -112,4 +123,21 @@ color: white;
 
 #load{
     filter: drop-shadow( 4px 4px 20px rgba(255, 255, 255, 0.393));
+}
+
+.chooseIMG{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+
+}
+
+#img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.favicon-img{
+    display: none;
 }
