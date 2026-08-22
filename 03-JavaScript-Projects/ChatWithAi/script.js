@@ -4,8 +4,10 @@ const imgBtn = document.querySelector("#img");
 const imgInput = document.querySelector("#img input");
 const imgIMG = document.querySelector("#img img");
 const imgFavIcon = document.querySelector("#img i");
+const submitBtn = document.querySelector("#submit");
 
-const API_KEY = "" // add api key here
+// const API_KEY = "" // add api key here
+const API_KEY = "AIzaSyAS_2tQAKcRgYN9QKsv-o4sJnJ8PZkJ_ic";
 
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 let user = {
@@ -107,9 +109,15 @@ const handleChatResponse = (message) => {
 
 prompt.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
+     if (prompt.value === "") return;
     handleChatResponse(prompt.value);
   }
 });
+
+submitBtn.addEventListener("click",()=>{
+  if(prompt.value === "") return;
+  handleChatResponse(prompt.value);
+})
 
 imgInput.addEventListener("change", () => {
   const file = imgInput.files[0];
@@ -131,6 +139,9 @@ imgInput.addEventListener("change", () => {
 
 
 });
+
+
+
 
 imgBtn.addEventListener("click", () => {
   imgBtn.querySelector("input").click();
