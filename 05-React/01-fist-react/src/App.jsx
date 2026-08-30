@@ -1,17 +1,31 @@
 
+// import JsxWithCurlyBracket from './02component/JsxWithCurlyBracket'
+// import FirstCom from './01component/FirstCom'
+// import { UserCom } from './01component/UserCom'
+// import {name} from './01component/ValueExport'
+// import Counter from './02component/Counter'
+// import Event from './02component/Event'
+// import State from './02component/State'
+import Props from './02component/Props'
+import Toggle from './02component/Toggle'
 import './App.css'
-import FirstCom from './01component/FirstCom'
-import { UserCom } from './01component/UserCom'
-import {name} from './01component/ValueExport'
 
 function App() {
 
   return (
     <>
-      <h1>Hello React</h1>
+    {/* part-1 */}
+      {/* <h1>Hello React</h1>
       <FirstCom/>
       <UserCom/>
-      {name}
+      {name} */}
+    {/* part-2 */}
+      {/* <JsxWithCurlyBracket/> */}
+      {/* <Event/> */}
+      {/* <State/> */}
+      {/* <Counter/> */}
+      {/* <Toggle/> */}
+      <Props/>
     </>
   )
 }
